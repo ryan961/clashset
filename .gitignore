@@ -1,2 +1,5 @@
 .idea/
+.vscode/
 out/
+vendor/
+clash-setting
