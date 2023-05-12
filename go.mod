@@ -1,4 +1,4 @@
-module clash-setting
+module github.com/ryan961/clashset
 
 go 1.20
 
