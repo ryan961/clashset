@@ -1,4 +1,4 @@
-# clash-setting
+# clashset
 
 ## 执行参数说明
 ```text
