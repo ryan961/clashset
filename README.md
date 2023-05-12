@@ -1,7 +1,9 @@
 # clashset
 
 ## 执行参数说明
-```text
+```bash
+✗ ./clashset -h
+Usage of ./clashset:
   -dir string
         配置文件地址 📁 , 默认配置文件 template.yaml & proxy-filters.yaml 文件夹 (default "./")
   -file string
@@ -15,7 +17,7 @@
 ```
 
 
-## template.yaml 自定义配置模版
+## template.yaml 自定义配置模版go
 
 预先定义用户配置文件模版（除 `proxy-providers` 和 `proxy-groups`
 的其他配置），脚本会根据订阅地址和规则生成填充 `proxy-providers`和 `proxy-groups` 配置。`rule-provider`、`rules`...相关配置自行在
