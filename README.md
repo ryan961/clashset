@@ -17,7 +17,7 @@ Usage of ./clashset:
 ```
 
 
-## template.yaml 自定义配置模版go
+## template.yaml 自定义配置模版
 
 预先定义用户配置文件模版（除 `proxy-providers` 和 `proxy-groups`
 的其他配置），脚本会根据订阅地址和规则生成填充 `proxy-providers`和 `proxy-groups` 配置。`rule-provider`、`rules`...相关配置自行在
