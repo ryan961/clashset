@@ -1,5 +1,5 @@
 # filter 过滤不存在的节点将会自动过滤
-# { name: "hk", filter: '香港', interval: 86400 }
+# { name: "hk", filter: '香港' }
 filters:
   - { name: "hk", filter: '香港' }
   - { name: "tw", filter: '台湾' }

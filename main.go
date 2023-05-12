@@ -26,8 +26,7 @@ const (
 	templateFile      = "template.yaml"
 	configurationFile = "configuration.yaml"
 
-	timeout  = 30 * time.Second
-	interval = 86400
+	timeout = 30 * time.Second
 )
 
 var (
@@ -35,6 +34,7 @@ var (
 	dirMode  os.FileMode = 0o755
 
 	urls, dir, file, out string
+	interval             uint64
 
 	urlList     []string
 	configMap   = make(map[string]any)
@@ -84,6 +84,7 @@ func init() {
 	flag.StringVar(&dir, "dir", "./", "配置文件地址 📁 , 默认配置文件 template.yaml & proxy-filters.yaml 文件夹")
 	flag.StringVar(&file, "file", "config.yaml", "导出配置文件名称 📃")
 	flag.StringVar(&out, "out", "out/", "导出文件夹 📁")
+	flag.Uint64Var(&interval, "interval", 86400, "proxy-providers 配置刷新间隔时长(s)")
 	flag.Parse()
 
 	if strings.TrimSpace(urls) == "" {

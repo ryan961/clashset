@@ -6,6 +6,8 @@
         配置文件地址 📁 , 默认配置文件 template.yaml & proxy-filters.yaml 文件夹 (default "./")
   -file string
         导出配置文件名称 📃 (default "config.yaml")
+  -interval uint
+        proxy-providers 配置刷新间隔时长(s) (default 86400)
   -out string
         导出文件夹 📁 (default "out/")
   -urls string
@@ -23,11 +25,11 @@ template.yaml 中配置。
 
 * `filters`: `proxy-providers` 中根据 `filter` 生成的节点分组，机场间单独分开（例如：`name: jp-airport1`
   ），后面会填充到对应的 `use_filters` 中,
-  对于 `filter` 正则匹配不存在节点的分组则会自动跳过。 `interval` 为刷新间隔。
+  对于 `filter` 正则匹配不存在节点的分组则会自动跳过。
 
 ```yaml
 filters:
-  - { name: "hk", filter: '香港', interval: 86400 }
+  - { name: "hk", filter: '香港' }
   - { name: "tw", filter: '台湾' }
   - { name: "jp", filter: '日本' }
 ```
