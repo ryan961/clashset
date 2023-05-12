@@ -129,6 +129,8 @@ func main() {
 		}
 
 		name := path.Base(filename[:len(filename)-len(path.Ext(filename))])
+		name = fmt.Sprintf(`✈️ %s`, name)
+
 		airportFiles[name] = map[string]any{
 			"path":        filename,
 			"proxySchema": proxySchema,
