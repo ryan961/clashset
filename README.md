@@ -12,6 +12,8 @@ Usage of ./clashset:
         proxy-providers 配置刷新间隔时长(s) (default 86400)
   -out string
         导出文件夹 📁 (default "out/")
+  -proxy string
+        http proxy ✈️
   -urls string
         订阅链接地址 🔗 (多个订阅链接之间 "," 分隔)
 ```
