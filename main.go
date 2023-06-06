@@ -4,10 +4,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"io"
 	"log"
-	"net"
-	"net/http"
 	"net/url"
 	"os"
 	"path"
@@ -16,7 +13,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Dreamacro/clash/component/dialer"
+	"github.com/go-resty/resty/v2"
 	"github.com/mitchellh/mapstructure"
 	"github.com/samber/lo"
 	"gopkg.in/yaml.v3"
@@ -33,8 +30,10 @@ var (
 	fileMode os.FileMode = 0o666
 	dirMode  os.FileMode = 0o755
 
-	urls, dir, file, out string
-	interval             uint64
+	httpClient = resty.New()
+
+	urls, dir, file, out, proxy string
+	interval                    uint64
 
 	urlList     []string
 	configMap   = make(map[string]any)
@@ -81,6 +80,7 @@ type ProxySchema struct {
 
 func init() {
 	flag.StringVar(&urls, "urls", "", "订阅链接地址 🔗 (多个订阅链接之间 \",\" 分隔)")
+	flag.StringVar(&proxy, "proxy", "", "http proxy ✈️")
 	flag.StringVar(&dir, "dir", "./", "配置文件地址 📁 , 默认配置文件 template.yaml & proxy-filters.yaml 文件夹")
 	flag.StringVar(&file, "file", "config.yaml", "导出配置文件名称 📃")
 	flag.StringVar(&out, "out", "out/", "导出文件夹 📁")
@@ -91,6 +91,12 @@ func init() {
 		log.Fatal("urls is empty")
 	}
 	urlList = strings.Split(urls, ",")
+	log.Println("subscribed links:", urlList)
+
+	if proxy != "" {
+		log.Println("http proxy:", proxy)
+		httpClient.SetProxy(proxy)
+	}
 }
 
 func main() {
@@ -282,42 +288,18 @@ func request(uri *url.URL) ([]byte, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), timeout)
 	defer cancel()
 
-	req, err := http.NewRequest(http.MethodGet, uri.String(), nil)
-	if err != nil {
-		return nil, err
-	}
+	req := httpClient.R().SetContext(ctx)
 
 	if user := uri.User; user != nil {
 		password, _ := user.Password()
 		req.SetBasicAuth(user.Username(), password)
 	}
 
-	req = req.WithContext(ctx)
-
-	transport := &http.Transport{
-		// from http.DefaultTransport
-		MaxIdleConns:          100,
-		IdleConnTimeout:       90 * time.Second,
-		TLSHandshakeTimeout:   10 * time.Second,
-		ExpectContinueTimeout: 1 * time.Second,
-		DialContext: func(ctx context.Context, network, address string) (net.Conn, error) {
-			return dialer.DialContext(ctx, network, address)
-		},
-	}
-
-	client := http.Client{Transport: transport}
-	resp, err := client.Do(req)
+	res, err := req.Get(uri.String())
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
-
-	buf, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return nil, err
-	}
-
-	return buf, nil
+	return res.Body(), nil
 }
 
 func safeWrite(path string, buf []byte) error {

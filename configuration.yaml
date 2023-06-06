@@ -18,4 +18,5 @@ groups:
   - { group: { name: "Netflix", type: select, proxies: [ "Proxy" ] }, use_filters: [ "tw","hk" ] }
   - { group: { name: "Telegram", type: select, proxies: [ "Proxy" ] }, use_filters: [ "tw","hk" ] }
   - { group: { name: "Twitter", type: select, proxies: [ "Proxy" ] }, use_filters: [ "tw","hk" ] }
+  - { group: { name: "TikTok", type: select }, use_filters: [ "tw","us","sg" ], rm_airports: true }
   - { group: { name: "OpenAI", type: select, proxies: [ "Proxy" ] }, use_filters: [ "jp","us","sg" ] }

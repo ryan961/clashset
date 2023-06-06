@@ -251,6 +251,13 @@ rule-providers:
     path: ./ruleset/netflix.yaml
     interval: 86400
 
+  tiktok:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@release/rule/Clash/TikTok/TikTok.yaml"
+    path: ./ruleset/netflix.yaml
+    interval: 86400
+
   proxy:
     type: http
     behavior: classical
@@ -292,6 +299,7 @@ rules:
   - RULE-SET,twitter,Twitter
   - RULE-SET,youtube,YouTube
   - RULE-SET,netflix,Netflix
+  - RULE-SET,tiktok,TikTok
   - RULE-SET,amazon,Amazon
   - RULE-SET,openai,OpenAI
 
