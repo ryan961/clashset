@@ -1,12 +1,12 @@
 # filter 过滤不存在的节点将会自动过滤
 # { name: "hk", filter: '香港' }
 filters:
-  - { name: "hk", filter: '香港' }
-  - { name: "tw", filter: '台湾' }
-  - { name: "jp", filter: '日本' }
-  - { name: "sg", filter: '新加坡|狮城' }
-  - { name: "us", filter: '美国' }
-  - { name: "kr", filter: 'Korea|韩国' }
+  - { name: "hk", filter: '香港|HK' }
+  - { name: "tw", filter: '台湾|TW' }
+  - { name: "jp", filter: '日本|JP' }
+  - { name: "sg", filter: '新加坡|狮城|SG' }
+  - { name: "us", filter: '美国|US' }
+  - { name: "kr", filter: 'Korea|韩国|KR' }
 
 
 # example: { group: { name: "YouTube", type: url-test, proxies: [ "Proxy" ], url: 'http://www.gstatic.com/generate_204', interval: 300 }, rm_airports: true }
