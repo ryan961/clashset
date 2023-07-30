@@ -190,9 +190,10 @@ func main() {
 	proxyGroups = append(
 		proxyGroups,
 		map[string]any{
-			"name": "Proxy",
-			"type": "select",
-			"use":  lo.Keys(airportFiles),
+			"name":    "Proxy",
+			"type":    "select",
+			"proxies": lo.Keys(airportFiles),
+			"use":     lo.Keys(airportFiles),
 		},
 	)
 	// add airport proxy groups

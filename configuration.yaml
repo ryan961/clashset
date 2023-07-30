@@ -6,7 +6,7 @@ filters:
   - { name: "jp", filter: '日本|JP' }
   - { name: "sg", filter: '新加坡|狮城|SG' }
   - { name: "us", filter: '美国|US' }
-  - { name: "kr", filter: 'Korea|韩国|KR' }
+  - { name: "kr", filter: 'Korea|韩国|KR|KOR' }
 
 
 # example: { group: { name: "YouTube", type: url-test, proxies: [ "Proxy" ], url: 'http://www.gstatic.com/generate_204', interval: 300 }, rm_airports: true }
