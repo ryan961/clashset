@@ -1,10 +1,10 @@
 # filter 过滤不存在的节点将会自动过滤
 # { name: "hk", filter: '香港' }
 filters:
-  - { name: "hk", filter: '香港|HK' }
-  - { name: "tw", filter: '台湾|TW' }
+  - { name: "hk", filter: '香港|HK|hk' }
+  - { name: "tw", filter: '台湾|TW|tw' }
   - { name: "jp", filter: '日本|JP' }
-  - { name: "sg", filter: '新加坡|狮城|SG' }
+  - { name: "sg", filter: '新加坡|狮城|SG|sg' }
   - { name: "us", filter: '美国|US' }
   - { name: "kr", filter: 'Korea|韩国|KR|KOR' }
 
@@ -20,3 +20,4 @@ groups:
   - { group: { name: "Twitter", type: select, proxies: [ "Proxy" ] }, use_filters: [ "tw","hk" ] }
   - { group: { name: "TikTok", type: select }, use_filters: [ "tw","us","sg" ], rm_airports: true }
   - { group: { name: "OpenAI", type: select, proxies: [ "Proxy" ] }, use_filters: [ "jp","us","sg" ] }
+  - { group: { name: "Jetbrains", type: select, proxies: [ "Proxy" ] }, use_filters: [ "jp","us","sg" ] }
