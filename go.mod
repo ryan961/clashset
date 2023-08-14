@@ -1,6 +1,6 @@
 module github.com/ryan961/clashset
 
-go 1.20
+go 1.21.0
 
 require (
 	github.com/go-resty/resty/v2 v2.7.0
@@ -10,6 +10,6 @@ require (
 )
 
 require (
-	golang.org/x/exp v0.0.0-20220303212507-bbda1eaf7a17 // indirect
-	golang.org/x/net v0.9.0 // indirect
+	golang.org/x/exp v0.0.0-20230811145659-89c5cff77bcb // indirect
+	golang.org/x/net v0.14.0 // indirect
 )
