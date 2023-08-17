@@ -21,3 +21,4 @@ groups:
   - { group: { name: "TikTok", type: select }, use_filters: [ "tw","us","sg" ], rm_airports: true }
   - { group: { name: "OpenAI", type: select, proxies: [ "Proxy" ] }, use_filters: [ "jp","us","sg" ] }
   - { group: { name: "Jetbrains", type: select, proxies: [ "Proxy" ] }, use_filters: [ "jp","us","sg" ] }
+  - { group: { name: "Claude", type: select, proxies: [ "Proxy" ] }, use_filters: [ "jp","us","sg" ] }
