@@ -42,6 +42,7 @@ external-controller: '0.0.0.0:9090'
 # 不使用通配符的域名优先级高于使用通配符的域名 (例如: foo.example.com > *.example.com > .example.com )
 # 注意: +.foo.com 的效果等同于 .foo.com 和 foo.com
 hosts:
+  '*.docker.internal': 127.0.0.1
 # '*.clash.dev': 127.0.0.1
 # '.dev': 127.0.0.1
 # 'alpha.clash.dev': '::1'
@@ -266,11 +267,11 @@ rule-providers:
     interval: 86400
 
   claude:
-      type: http
-      behavior: classical
-      url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.yaml"
-      path: ./ruleset/claude.yaml
-      interval: 86400
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.yaml"
+    path: ./ruleset/claude.yaml
+    interval: 86400
 
   proxy:
     type: http
