@@ -320,6 +320,8 @@ rules:
   - RULE-SET,jetbrains,Jetbrains
   - RULE-SET,claude,Claude
 
+  - DOMAIN-SUFFIX,grazie.ai,Jetbrains
+
   - RULE-SET,proxy,Proxy
   - RULE-SET,direct,DIRECT
   - RULE-SET,cnmax,DIRECT
