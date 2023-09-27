@@ -236,7 +236,7 @@ func main() {
 	proxyGroups = append(proxyGroups, map[string]any{
 		"name":    "MATCH",
 		"type":    "select",
-		"proxies": []string{"Proxy"},
+		"proxies": []string{"DIRECT", "Proxy"},
 		"use":     lo.Keys(airportFiles),
 	})
 	configMap["proxy-groups"] = proxyGroups
