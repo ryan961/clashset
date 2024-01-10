@@ -52,7 +52,7 @@ dns:
     - 114.114.114.114
     - 8.8.8.8
 
-  fake-ip-range: 198.18.0.1/16 # Fake IP 地址池 (CIDR 形式)
+#  fake-ip-range: 198.18.0.1/16 # Fake IP 地址池 (CIDR 形式)
   use-hosts: true # 查询 hosts 并返回 IP 记录
 
   # 此列表中的主机名将不会使用 Fake IP 解析
@@ -195,18 +195,20 @@ rules:
   - DOMAIN,yacd.haishan.me,DIRECT
   - RULE-SET,private,DIRECT
 
+  - DOMAIN-SUFFIX,coze.com,OpenAI
+
   - RULE-SET,advertisingLite,REJECT
   - RULE-SET,apple,Apple
   - RULE-SET,google,Google
   - RULE-SET,telegram,Telegram
+  - RULE-SET,openai,OpenAI
+  - RULE-SET,jetbrains,Jetbrains
+  - RULE-SET,claude,Claude
   - RULE-SET,twitter,Twitter
   - RULE-SET,youtube,YouTube
   - RULE-SET,netflix,Netflix
   - RULE-SET,tiktok,TikTok
   - RULE-SET,amazon,Amazon
-  - RULE-SET,openai,OpenAI
-  - RULE-SET,jetbrains,Jetbrains
-  - RULE-SET,claude,Claude
 
   - RULE-SET,proxy,Proxy
   - RULE-SET,direct,DIRECT
