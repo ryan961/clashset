@@ -125,7 +125,6 @@ func main() {
 		}
 
 		// filename 配置文件默认同级文件夹
-
 		provider := map[string]any{
 			"type":         "http",
 			"path":         filename,
@@ -151,7 +150,7 @@ func main() {
 	for _, v := range proxyConfig.Filters {
 		filterReg, err := regexp.Compile(v.Filter)
 		if err != nil {
-			log.Fatalf("invalid filter regex: %w", err)
+			log.Fatalf("invalid filter regex: %v", err)
 			return
 		}
 
