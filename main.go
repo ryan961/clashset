@@ -41,7 +41,7 @@ var (
 
 	defaultHealthCheck = map[string]any{
 		"enable":   true,
-		"url":      "http://www.gstatic.com/generate_204",
+		"url":      "https://www.google.com/generate_204",
 		"interval": 3600,
 	}
 )
@@ -150,7 +150,7 @@ func main() {
 	for _, v := range proxyConfig.Filters {
 		filterReg, err := regexp.Compile(v.Filter)
 		if err != nil {
-			log.Fatalf("invalid filter regex: %v", err)
+			log.Fatalf("invalid filter regex: %w", err)
 			return
 		}
 
